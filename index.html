@@ -2,24 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rishi Adepu — AI & Web Developer</title>
-  <meta name="google-site-verification" content="OM8FR0GycP6B1obbI6ssSV5eVZFrg2ktIsRPpjhpXpU" />
-  <meta name="description" content="Rishi Adepu — BTech CSE Student, AI & Web Developer. Building scalable web applications and AI-powered solutions that solve real-world challenges." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Adepu Rishi — Portfolio | AI &amp; ML Enthusiast</title>
+  <meta name="description" content="Rishi Adepu — BTech CSE Student, AI & ML Enthusiast. Building real AI applications and web products that solve real-world problems." />
 
-  <!-- Fonts: Syne (headings) · DM Sans (body) · JetBrains Mono (code) -->
+  <!-- Marks JS as available so the intro loader only shows when it can actually run -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Fonts: Syne (headings) · DM Sans (body) · JetBrains Mono (code / ASCII) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
+  <noscript><style>.loader{display:none!important}.reveal,.name-word>span,.hero-fade{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body>
+<body class="is-loading">
+
+  <!-- INTRO LOADER -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-panel loader-panel--top"></div>
+    <div class="loader-panel loader-panel--bottom"></div>
+    <div class="loader-center">
+      <span class="loader-dot" id="loaderDot"></span>
+      <span class="loader-text" id="loaderText"></span>
+      <span class="loader-meta"><span id="loaderPct">0</span>% &nbsp;assembling portrait</span>
+    </div>
+  </div>
+
+  <!-- AMBIENT -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo" aria-label="Go to hero section">RA<span class="accent">.</span></a>
+      <a href="#hero" class="nav-logo" aria-label="Go to top">RA<span class="accent">.</span></a>
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#about"    class="nav-link">About</a></li>
@@ -31,141 +50,165 @@
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
         <span></span>
         <span></span>
-        <span></span>
       </button>
     </div>
   </nav>
 
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-aura" aria-hidden="true"></div>
+    <canvas id="ascii" aria-hidden="true"></canvas>
 
     <div class="hero-content">
-      <span class="hero-label">Hello, world —</span>
+      <p class="hero-label hero-fade">Hello, world — I'm<span class="cursor">_</span></p>
 
-      <h1 class="hero-name">
-        I'm <span class="accent">Rishi</span><span class="cursor">_</span>
+      <h1 class="hero-name" id="heroName" aria-label="Adepu Rishi">
+        <span class="name-word" aria-hidden="true"><span id="heroWord">Adepu Rishi</span></span>
       </h1>
 
-      <p class="hero-role" id="heroRole">BTech CSE Student • AI & Web Developer</p>
+      <div class="hero-foot">
+        <div class="hero-foot-text">
+          <p class="hero-role hero-fade" id="heroRole">BTech CSE Student • AI &amp; ML Enthusiast</p>
 
-      <p class="hero-tagline">
-        Engineering intelligent web applications and AI-driven solutions to solve real-world problems.
-      </p>
+          <p class="hero-tagline hero-fade">
+            I turn machine learning into real applications: AI that ships, helps people, and solves problems that matter.
+          </p>
+        </div>
 
-      <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact"  class="btn btn-outline">Contact Me</a>
-      </div>
-    </div>
-
-    <!-- Floating code card -->
-    <div class="hero-card" aria-hidden="true">
-      <div class="hero-card-dots">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="hero-card-code">
-        <div class="code-line" data-line="1"><span class="code-comment">// about me</span></div>
-        <div class="code-line" data-line="2"><span class="code-kw">const</span> <span class="code-var">rishi</span> = {</div>
-        <div class="code-line" data-line="3">&nbsp;&nbsp;role: <span class="code-str">"AI &amp; Web Developer"</span>,</div>
-        <div class="code-line" data-line="4">&nbsp;&nbsp;education: <span class="code-str">"BTech CSE"</span>,</div>
-        <div class="code-line" data-line="5">&nbsp;&nbsp;focus: <span class="code-str">"Problem Solving"</span>,</div>
-        <div class="code-line" data-line="6">&nbsp;&nbsp;status: <span class="code-str">"Open to Opportunities 🚀"</span></div>
-        <div class="code-line" data-line="7">};</div>
+        <div class="hero-btns hero-fade">
+          <a href="#projects" class="btn btn-primary" data-magnetic>View Projects</a>
+          <a href="#contact"  class="btn btn-outline" data-magnetic>Contact Me</a>
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section class="section about" id="about">
     <div class="container">
 
       <div class="section-header reveal">
-        <span class="section-tag">01 / About</span>
-        <h2 class="section-title">Who I Am</h2>
+        <span class="section-tag">~/about</span>
+        <h2 class="section-title"><span class="line"><span>Who I Am</span></span></h2>
       </div>
 
       <div class="about-grid">
 
         <div class="about-text reveal">
-          <p>
-            I am a Computer Science student bridging the gap between artificial intelligence and web engineering to build high-impact applications. I design and implement systems that solve real problems.
+          <p class="about-lead">
+            I am a Computer Science student bridging the gap between artificial intelligence, machine learning and web engineering to build high-impact applications. I design and implement systems that solve real problems.
           </p>
           <p>
-            With a focus on performance, accessibility, and clean architecture, I enjoy turning complex challenges into straightforward, production-ready code.
+            With a focus on performance, accessibility, and clean architecture, I enjoy turning complex challenges and messy data into straightforward, production-ready machine learning and web solutions.
           </p>
         </div>
 
-        <div class="about-info reveal">
-          <div class="info-card">
-            <span class="info-label">Education</span>
-            <span class="info-value">BTech CSE</span>
+        <dl class="about-info reveal">
+          <div class="info-row">
+            <dt class="info-label">Education</dt>
+            <dd class="info-value">BTech CSE</dd>
           </div>
-          <div class="info-card">
-            <span class="info-label">Core Focus</span>
-            <span class="info-value">AI & Web Development</span>
+          <div class="info-row">
+            <dt class="info-label">Core Focus</dt>
+            <dd class="info-value">AIML &amp; Web Development</dd>
           </div>
-          <div class="info-card info-card--full-width">
-            <span class="info-label">Availability</span>
-            <span class="info-value accent">Open to Opportunities</span>
+          <div class="info-row">
+            <dt class="info-label">Availability</dt>
+            <dd class="info-value info-value--live"><span class="live-dot" aria-hidden="true"></span>Open to Opportunities</dd>
+          </div>
+        </dl>
+
+      </div>
+
+      <!-- IDE code card, sits right after "Who I Am" -->
+      <div class="about-code reveal">
+        <div class="code-card" id="codeCard" aria-hidden="true">
+          <div class="code-card-header">
+            <div class="code-card-dots">
+              <span class="dot dot-close"></span>
+              <span class="dot dot-minimize"></span>
+              <span class="dot dot-expand"></span>
+            </div>
+            <div class="code-card-tab">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="tab-title">rishi.js</span>
+            </div>
+          </div>
+          <div class="code-card-code">
+            <div class="code-line"><span class="code-comment">// about me</span></div>
+            <div class="code-line"><span class="code-kw">const</span>&nbsp;<span class="code-var">rishi</span> = {</div>
+            <div class="code-line">&nbsp;&nbsp;education: <span class="code-str">"BTech CSE"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;focus: <span class="code-str">"AIML"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;status: <span class="code-str">"Open to Opportunities 🚀"</span></div>
+            <div class="code-line">};</div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
 
-  <!-- SKILLS SECTION -->
+  <!-- SKILLS -->
   <section class="section skills" id="skills">
     <div class="container">
 
       <div class="section-header reveal">
-        <span class="section-tag">02 / Skills</span>
-        <h2 class="section-title">What I Work With</h2>
+        <span class="section-tag">~/skills</span>
+        <h2 class="section-title"><span class="line"><span>What I Work With</span></span></h2>
       </div>
 
-      <div class="skills-categories">
+      <div class="skills-list">
 
-        <!-- Programming -->
-        <div class="skill-category reveal">
-          <h3 class="skill-category-title">Programming</h3>
-          <div class="skill-tags">
-            <span class="skill-tag-pill">C Programming</span>
+        <div class="skills-row reveal">
+          <h3 class="skills-block-title">Core Programming</h3>
+          <div class="skills-tags">
             <span class="skill-tag-pill">Python</span>
-            <span class="skill-tag-pill">Problem Solving</span>
-          </div>
-        </div>
-
-        <!-- Development -->
-        <div class="skill-category reveal">
-          <h3 class="skill-category-title">Development</h3>
-          <div class="skill-tags">
+            <span class="skill-tag-pill">JAVA</span>
+            <span class="skill-tag-pill">JavaScript</span>
             <span class="skill-tag-pill">HTML</span>
             <span class="skill-tag-pill">CSS</span>
-            <span class="skill-tag-pill">Firebase</span>
+            <span class="skill-tag-pill">C Programming</span>
           </div>
         </div>
 
-        <!-- Artificial Intelligence -->
-        <div class="skill-category reveal">
-          <h3 class="skill-category-title">Artificial Intelligence</h3>
-          <div class="skill-tags">
+        <div class="skills-row reveal">
+          <h3 class="skills-block-title">AI &amp; Ecosystem</h3>
+          <div class="skills-tags">
             <span class="skill-tag-pill">AI</span>
-            <span class="skill-tag-pill">Generative AI</span>
+            <span class="skill-tag-pill">Machine Learning</span>
+            <span class="skill-tag-pill">GenAI</span>
             <span class="skill-tag-pill">AI Dev Tools</span>
           </div>
         </div>
 
-        <!-- Tools -->
-        <div class="skill-category reveal">
-          <h3 class="skill-category-title">Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag-pill">VS Code</span>
+        <div class="skills-row reveal">
+          <h3 class="skills-block-title">Backend &amp; Data</h3>
+          <div class="skills-tags">
+            <span class="skill-tag-pill">FastAPI</span>
+            <span class="skill-tag-pill">Supabase</span>
+            <span class="skill-tag-pill">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skills-row reveal">
+          <h3 class="skills-block-title">Developer Tools</h3>
+          <div class="skills-tags">
             <span class="skill-tag-pill">GitHub</span>
-            <span class="skill-tag-pill">Power BI</span>
+            <span class="skill-tag-pill">VS Code</span>
+            <span class="skill-tag-pill">Vercel</span>
+            <span class="skill-tag-pill">Jupyter Notebook</span>
+          </div>
+        </div>
+
+        <div class="skills-row reveal">
+          <h3 class="skills-block-title">Core Competency</h3>
+          <div class="skills-tags">
+            <span class="skill-tag-pill">OOPS</span>
+            <span class="skill-tag-pill">Problem Solving</span>
+            <span class="skill-tag-pill">DSA Fundamentals</span>
           </div>
         </div>
 
@@ -174,36 +217,37 @@
   </section>
 
 
-  <!-- PROJECTS SECTION -->
+  <!-- PROJECTS -->
   <section class="section projects" id="projects">
     <div class="container">
 
       <div class="section-header reveal">
-        <span class="section-tag">03 / Projects</span>
-        <h2 class="section-title">What I've Built</h2>
+        <span class="section-tag">~/projects</span>
+        <h2 class="section-title"><span class="line"><span>What I've Built</span></span></h2>
       </div>
 
-      <div class="projects-stack">
+      <div class="projects-grid">
 
         <!-- Project 1 — Featured (ResQAI) -->
-        <div class="project-showcase project-showcase--featured reveal">
+        <article class="project-showcase bento-card bento-featured reveal" data-tilt>
           <div class="project-showcase-content">
             <div class="project-header-wrapper">
               <span class="project-badge">Featured Project • Google Challenge '26</span>
-              <h3 class="project-title">ResQAI: AI-Powered Volunteer &amp; Resource Coordination Platform</h3>
+              <h3 class="project-title">ResQAI: Volunteer &amp; Resource Coordination Platform</h3>
             </div>
 
             <p class="project-desc">
-              ResQAI is an AI-driven volunteer coordination platform designed to help NGOs and community organizations respond quickly during disasters, relief operations, medical camps, and community support initiatives.
+              An AI-driven volunteer coordination platform designed to help NGOs and community organizations respond quickly during disasters, relief operations, medical camps, and community support initiatives.
             </p>
 
-            <ul class="project-features">
-              <li>AI-based volunteer-to-task matching</li>
-              <li>Intelligent resource allocation system</li>
-              <li>Community coordination dashboard</li>
-              <li>Rapid disaster response support</li>
-              <li>Real-world social impact solution</li>
-            </ul>
+            <div class="project-tech-pills">
+              <span class="tech-pill">Volunteer Matching</span>
+              <span class="tech-pill">Resource Allocation</span>
+              <span class="tech-pill">Community Dashboard</span>
+              <span class="tech-pill">Disaster Response</span>
+              <span class="tech-pill">Streamlit</span>
+              <span class="tech-pill">Python</span>
+            </div>
 
             <div class="project-action">
               <a href="https://resq0ai.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open ResQAI Live Demo">
@@ -212,27 +256,28 @@
               </a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Project 2 (T-Sahaya) -->
-        <div class="project-showcase reveal">
+        <!-- Project 2 — T-Sahaya -->
+        <article class="project-showcase bento-card bento-normal reveal" data-tilt>
           <div class="project-showcase-content">
             <div class="project-header-wrapper">
               <span class="project-badge">AI Powered</span>
-              <h3 class="project-title">T-Sahaya: AI-Powered Telangana Government Scheme Assistant</h3>
+              <h3 class="project-title">T-Sahaya: Government Scheme Assistant</h3>
             </div>
 
             <p class="project-desc">
-              T-Sahaya is an AI-powered government scheme eligibility platform built exclusively for citizens of Telangana. It provides instant multilingual guidance for welfare schemes and helps users discover benefits they qualify for.
+              An AI-powered government scheme eligibility platform built for citizens of Telangana, providing instant multilingual guidance and welfare benefits discovery.
             </p>
 
-            <ul class="project-features">
-              <li>Guidance for 14+ Telangana welfare schemes</li>
-              <li>Multilingual assistance</li>
-              <li>AI-powered eligibility assessment</li>
-              <li>Fast and accessible citizen support</li>
-              <li>Reliable low-cost architecture</li>
-            </ul>
+            <div class="project-tech-pills">
+              <span class="tech-pill">14+ Welfare Schemes</span>
+              <span class="tech-pill">Multilingual Support</span>
+              <span class="tech-pill">Eligibility Engine</span>
+              <span class="tech-pill">Citizen Support</span>
+              <span class="tech-pill">Next.js</span>
+              <span class="tech-pill">Vercel</span>
+            </div>
 
             <div class="project-action">
               <a href="https://tsahaya-one.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open T-Sahaya Live Demo">
@@ -241,43 +286,50 @@
               </a>
             </div>
           </div>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
 
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section class="section contact" id="contact">
     <div class="container">
 
       <div class="section-header reveal">
-        <span class="section-tag">04 / Contact</span>
-        <h2 class="section-title">Let's Talk</h2>
+        <span class="section-tag">~/contact</span>
+        <h2 class="section-title"><span class="line"><span>Let's Talk</span></span></h2>
       </div>
 
       <div class="contact-grid">
 
         <div class="contact-info reveal">
           <p class="contact-intro">
-            I'm currently seeking internships and opportunities to build intelligent software solutions. If you're a recruiter, founder, or engineer looking to connect—reach out below.
+            Have a question, an idea, or just want to say hi? Reach out here and I'll get back to you.
           </p>
 
-          <div class="contact-links">
+          <div class="contact-socials">
 
-            <a href="mailto:rishiadepu26@gmail.com" class="contact-item">
-              <div class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <span>rishiadepu26@gmail.com</span>
+            <a href="mailto:rishiadepu26@gmail.com" class="social-link" aria-label="Send Email">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="social-svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <span class="social-text"><span class="social-name">Email</span><span class="social-handle">rishiadepu26@gmail.com</span></span>
             </a>
 
-            <a href="https://www.linkedin.com/in/rishi-adepu-5a254a390" target="_blank" rel="noopener noreferrer" class="contact-item">
-              <div class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </div>
-              <span>linkedin.com/in/rishi-adepu</span>
+            <a href="https://github.com/Rishi-11-26" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+              <span class="social-icon">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="social-svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              </span>
+              <span class="social-text"><span class="social-name">GitHub</span><span class="social-handle">github.com/Rishi-11-26</span></span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rishi-adepu-5a254a390" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+              </span>
+              <span class="social-text"><span class="social-name">LinkedIn</span><span class="social-handle">in/rishi-adepu</span></span>
             </a>
 
           </div>
@@ -289,12 +341,12 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required />
               </div>
 
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
               </div>
             </div>
 
@@ -303,7 +355,7 @@
               <textarea id="message" name="message" rows="4" placeholder="What's on your mind?" required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-full">
+            <button type="submit" class="btn btn-primary btn-full" data-magnetic>
               Send Message
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
@@ -324,7 +376,7 @@
     </div>
   </footer>
 
-
+  <script src="portrait-data.js"></script>
   <script src="script.js"></script>
 
 </body>
